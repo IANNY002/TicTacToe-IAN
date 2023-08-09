@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom right, #222, #f30c0c);
+    font-family: 'Roboto', sans-serif;
+}
+
+.tic-tac-toe {
+    width: fit-content;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.tic-tac-toe h1 {
+    color: #eee;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tic-tac-toe button {
+    padding: 8px 12px;
+    margin: 25px;
+    background: transparent;
+    border: 2px solid #eee;
+    color: #eee;
+    width: 100px;
+    border-radius: 5px;
+    transition: 0.2s;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.tic-tac-toe button:hover {
+    background: #eee;
+    color: #222;
+}
+
+.tic-tac-toe .game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.turn {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    width: fit-content;
+    position: relative;
+    border-radius: 10px;
+}
+
+.turn .square,
+.winner .square {
+    width: 70px;
+    height: 70px;
+    pointer-events: none;
+    border-color: transparent;
+}
+
+.turn .square span.x::before,
+.turn .square span.x::after {
+    background: #222;
+    transition: 0.2s;
+}
+
+.turn .square span.o {
+    transition: 0.2s;
+    border-color: #222;
+}
+
+.turn::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    top: 0;
+    background: #49ff58;
+    border-radius: 9px;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+.turn.left::after {
+    left: 0;
+}
+
+.turn.left span.o {
+    border-color: #eee;
+}
+
+.turn.right span.x::before,
+.turn.right span.x::after {
+    background: #eee;
+}
+
+.turn.right::after {
+    left: 50%;
+}
+
+.winner {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.winner .text {
+    background: #111;
+    width: 70%;
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.winner .text h2 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+    color: #eee;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.winner .win {
+    margin: 0 auto;
+    width: fit-content;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Hover effect for winning squares */
+.winner .square:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    background: #111;
+    color: #eee;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #49ff58;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.score {
+    text-align: center;
+}
+
+.score p:first-child {
+    font-weight: bold;
+}
+
+.score p:last-child {
+    margin-top: 5px;
+    font-size: 24px;
+    color: #f39c12;
+}
